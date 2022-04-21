@@ -1,0 +1,24 @@
+import java.io.IOException;
+
+public class exceptionPropogationChecked {     // throws keyword
+    void m() throws IOException {
+        throw new java.io.IOException("device error");
+    }
+    void n() throws IOException {
+        m();
+    }
+    void p(){
+        try{
+            n();
+        }
+        catch(Exception e){
+            System.out.println("exception handled");
+        }
+    }
+
+    public static void main(String[] args){
+        exceptionPropogationChecked s = new exceptionPropogationChecked();
+        s.p();
+        System.out.println("normal flow");
+    }
+}
